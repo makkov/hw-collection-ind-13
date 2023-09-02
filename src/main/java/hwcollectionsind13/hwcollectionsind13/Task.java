@@ -76,11 +76,5 @@ public class Task {
                 countByWord.put(str, countByWord.get(str) + 1);
             }
         }
-
-        for (Map.Entry<String, Integer> e: countByWord.entrySet()) {
-            if (e.getValue() > 1) {
-                System.out.println(e);
-            }
-        }
     }
 }
