@@ -2,16 +2,18 @@ package hwcollectionsind13.hwcollectionsind13.controller;
 
 import hwcollectionsind13.hwcollectionsind13.model.Employee;
 import hwcollectionsind13.hwcollectionsind13.service.EmployeeService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
+
+    @ExceptionHandler(RuntimeException.class)
+    public String handleException(RuntimeException e) {
+        return e.getMessage();
+    }
 
     private final EmployeeService employeeService;
 
