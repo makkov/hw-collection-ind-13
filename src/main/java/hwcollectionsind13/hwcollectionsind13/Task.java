@@ -1,19 +1,50 @@
 package hwcollectionsind13.hwcollectionsind13;
 
+import hwcollectionsind13.hwcollectionsind13.model.Employee;
+
 import java.util.*;
 
 public class Task {
 
     public static void main(String[] args) {
 
-        List<Integer> nums = new ArrayList<>(List.of(77, 46, 43, 1, 1, 2, 3, 4, 4, 5, 5, 6, 7));
+//        List<Integer> nums = new ArrayList<>(List.of(77, 46, 43, 1, 1, 2, 3, 4, 4, 5, 5, 6, 7));
 //        System.out.println("nums = " + nums);
 //        task1(nums);
 //        task2(nums);
 
-        List<String> strings = new ArrayList<>(List.of("hello", "Hello", "world", "how", "hello", "are", "are", "you"));
+//        List<String> strings = new ArrayList<>(List.of("hello", "Hello", "world", "how", "hello", "are", "are", "you"));
 //        task3(strings);
-        task4(strings);
+//        task4(strings);
+
+
+        Employee employee1 = new Employee("Ivan", "Ivanov");
+        Employee employee2 = new Employee("Petr", "Petrov");
+        Employee employee3 = new Employee("Maxim", "Maximov");
+
+        Map<Integer, Employee> map1 = new HashMap<>();
+        map1.put(77, employee1);
+        map1.put(43, employee2);
+        map1.put(46, employee3);
+
+        System.out.println("hashMap " + map1);
+
+        Map<Integer, Employee> map2 = new LinkedHashMap<>();
+        map2.put(77, employee1);
+        map2.put(43, employee2);
+        map2.put(46, employee3);
+
+        System.out.println("LinkedHashMap " + map2);
+
+        Map<Integer, Employee> map3 = new TreeMap<>(
+                (x, y) -> (-1) * x.compareTo(y)
+        );
+
+        map3.put(77, employee1);
+        map3.put(43, employee2);
+        map3.put(46, employee3);
+
+        System.out.println("TreeMap " + map3);
     }
 
     /*
