@@ -4,21 +4,21 @@ import hwcollectionsind13.hwcollectionsind13.model.Employee;
 import hwcollectionsind13.hwcollectionsind13.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Collection;
 
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
 
-    @ExceptionHandler(RuntimeException.class)
-    public String handleException(RuntimeException e) {
-        return e.getMessage();
-    }
-
     private final EmployeeService employeeService;
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public String handleException(RuntimeException e) {
+        return e.getMessage();
     }
 
     @GetMapping("/add")
@@ -37,7 +37,7 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public List<Employee> getAll() {
+    public Collection<Employee> getAll() {
         return employeeService.getAll();
     }
 }
